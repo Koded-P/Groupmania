@@ -96,7 +96,7 @@ app.post("/login", (req, res) => {
       console.log(e);
     });
 });
-
+//Find All Post
 app.get("/posts", (req, res) => {
   Post.findAll({
     where: { rootId: null },
