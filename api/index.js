@@ -17,7 +17,7 @@ app.use(cookieParser());
 //allow foreign apps to connect to our api e.g our React app
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3001",
     credentials: true,
   })
 );
@@ -70,9 +70,9 @@ app.get("/user", (req, res) => {
 });
 
 app.post("/logout", (req, res) => {
-  return        res.clearCookie("token");
+ // return        res.clearCookie("token");
  
-  // res.cookie('token','').send()
+   res.cookie('token','').send()
 });
 
 app.post("/login", (req, res) => {
@@ -156,12 +156,12 @@ async function DB() {
     await db.authenticate();
     console.log("Database Connection has been established successfully.");
   } catch (error) {
-    console.error("Unable to connect to the database:", error);
+     console.error("Unable to connect to the database:", error);
   }
 }
 DB();
 
 //start the server
-app.listen(3000, () => {
+app.listen(4000, () => {
   console.log("Server Started");
 });
